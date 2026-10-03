@@ -1,12 +1,11 @@
-# Badaam Saat v4 — Cards First
+# Badaam Saat v5 — Clean Rebuild
+Complete replacement build. Do not merge old assets.
 
-Key changes:
-- Clean timber gameplay plate: no baked-in people, cards, suits, labels or UI.
-- Played cards are much larger and overlap vertically around each suit's 7.
-- Player hand is a true responsive fan; all ranks remain visible.
-- Legal moves use a subtle lift/light treatment instead of a thick yellow outline.
-- Tap once to select, tap again to play.
-- Opponent portraits appear only once.
-- Chai/snacks are peripheral and subdued so cards remain the visual focus.
-- Quick Game and 7 Rounds are selectable from the home screen.
-- Existing ♥7, compulsory-play, clockwise and A=1…K=13 scoring rules retained.
+- Clean timber gameplay plate with no baked-in cards, portraits, suits, labels or UI.
+- Cards-first layout based on the approved cinematic mockup.
+- Borderless opponent cards; selected state uses only restrained gold emphasis.
+- Large central suit stacks anchored on 7.
+- Responsive fanned hand with two-tap play.
+- Single opponent portrait layer.
+- Chai/snacks stay at the periphery.
+- ♥7 mandatory start, clockwise turns, compulsory legal play, A=1 … K=13 scoring.
