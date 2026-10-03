@@ -1,14 +1,12 @@
-# Badaam Saat v3
+# Badaam Saat v4 — Cards First
 
-Visual rebuild based directly on the approved cinematic concept artwork.
-
-- Artwork-backed homepage and table atmosphere
-- Six portrait-based computer opponents
-- Opponent selection with skill/personality profiles
-- Responsive iPhone-first layout
-- Quick Game core play
-- Mandatory 7♥ opening and clockwise turns
-- Passing only when no legal card exists
-- A=1 through K=13 scoring
-
-Upload the contents of this folder to the repository root and enable GitHub Pages.
+Key changes:
+- Clean timber gameplay plate: no baked-in people, cards, suits, labels or UI.
+- Played cards are much larger and overlap vertically around each suit's 7.
+- Player hand is a true responsive fan; all ranks remain visible.
+- Legal moves use a subtle lift/light treatment instead of a thick yellow outline.
+- Tap once to select, tap again to play.
+- Opponent portraits appear only once.
+- Chai/snacks are peripheral and subdued so cards remain the visual focus.
+- Quick Game and 7 Rounds are selectable from the home screen.
+- Existing ♥7, compulsory-play, clockwise and A=1…K=13 scoring rules retained.
