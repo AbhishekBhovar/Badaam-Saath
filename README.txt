@@ -1,14 +1,5 @@
-BADAAM SAAT — Repository Uplift v8
+Badaam Saat v9 repository patch
 
-Upload/replace only these items in the repository root:
-- index.html
-- assets/branding/
-- assets/portraits/
+Upload/replace only these included paths. Keep your existing assets/home.jpg and assets/table.jpg.
 
-Keep your existing assets/home.jpg and assets/table.jpg.
-
-Changes:
-- Final 1F handwritten Badaam Saat identity on home screen + app icons.
-- Fixed global portrait path issue: all roster and in-game portraits now use local assets/portraits/*.svg with exact lowercase filenames.
-- Includes all 15 current opponent portraits as original vector artwork (no actor/movie likenesses).
-- Retains the latest card-hand uplift, one-tap nearest-card hit testing, turn engine, active-player indicator, animations, and double-tap zoom prevention.
+Changes: clean single 1F logo; no movie/franchise filters; YJHD roster removed; expanded Hera Pheri / Phir Hera Pheri name roster; original realistic portraits with deliberately age-swapped interpretations and same genders; exact per-card transformed touch targets.
