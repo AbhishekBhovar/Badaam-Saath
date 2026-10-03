@@ -1,15 +1,20 @@
-# Badaam Saat
+# Badaam Saat v2
 
-A mobile-first family card game prototype: You vs Vikram, Raj and Asha.
+Mobile-first Badaam Saat / Badam Satti prototype.
 
-## Rules
-- Holder of the 7 of Hearts starts and must play it.
-- Play proceeds clockwise.
-- Each suit opens with its 7 and builds downward to Ace and upward to King.
-- You cannot pass if you have a legal card.
-- First player to empty their hand ends the round.
-- Remaining cards score A=1 through K=13.
-- Modes: Quick Game and 7-Round Match; lowest cumulative score wins the match.
+## v2 visual rebuild
+- Warm home dining-table presentation rather than casino UI
+- Cutting chai + masala chips table props
+- Physical card depth, overlap and responsive hand
+- Opponent-select screen inspired by classic chess opponent rosters
+- Six named computer personalities across five skill levels
+- Quick Game and 7-Round Match
+- ♥7 mandatory start, clockwise play, no passing when a legal move exists
+- A=1 through K=13 penalty scoring
 
-## Run
-Open `index.html`, or publish the repository with GitHub Pages.
+## GitHub Pages
+Upload the contents of this folder to the repository root, then enable GitHub Pages from the main branch/root.
+
+## Portrait note
+The included v2 build uses lightweight illustrated human placeholders so the repository is self-contained.
+For the production art pass, replace these with licensed or original realistic portrait assets while retaining the opponent profiles and AI personalities.

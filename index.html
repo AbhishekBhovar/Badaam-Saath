@@ -1,1 +1,117 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#e8c48c"><title>Badaam Saat</title><link rel="stylesheet" href="style.css"></head><body><main id="app"><section id="menu" class="screen menu"><div class="logo"><span>♥</span><h1>Badaam Saat</h1><p>Cards. Chai. Family chaos.</p></div><div class="menu-card"><button class="mode selected" data-mode="quick"><b>Quick Game</b><small>One round</small></button><button class="mode" data-mode="seven"><b>7-Round Match</b><small>Lowest score wins</small></button><button id="play" class="primary">Deal the cards</button><button id="rulesBtn" class="textbtn">How to play</button></div></section><section id="game" class="screen game hidden"><header><button id="home" aria-label="Home">‹</button><div><b id="roundLabel">Quick Game</b><small id="turnLabel">Getting the table ready…</small></div><button id="scoresBtn">Scores</button></header><div class="table-shell"><div class="table"><div class="grain"></div><div class="prop chai" aria-hidden="true"><i></i></div><div class="prop chips" aria-hidden="true"><b>MASALA</b><span>CHIPS</span></div><div class="prop coaster"></div><div id="north" class="player north"></div><div id="west" class="player west"></div><div id="east" class="player east"></div><div id="board" class="board"></div><div id="toast" class="toast">♥7 starts every round</div><div class="you"><b>You</b><span id="youCount"></span></div><div id="hand" class="hand"></div><button id="pass" class="pass" disabled>Pass</button></div></div></section><dialog id="modal"><div id="modalBody"></div><button id="closeModal" class="primary">Close</button></dialog></main><script src="game.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#ead1a8">
+<title>Badaam Saat</title>
+<style>
+:root{--ink:#2c1b13;--cream:#fff7e7;--paper:#fffdf8;--red:#c9353e;--gold:#e5ae3f;--wood:#9f5d31}
+*{box-sizing:border-box}html,body{margin:0;background:#ead1a8;color:var(--ink);font-family:ui-rounded,"SF Pro Rounded","Avenir Next",system-ui,sans-serif}
+button{font:inherit;color:inherit}button:focus-visible{outline:3px solid #2f74d0;outline-offset:2px}
+.app{max-width:780px;margin:auto;min-height:100dvh;background:linear-gradient(#f6e5c6,#ead1a8);padding:calc(10px + env(safe-area-inset-top)) 10px calc(14px + env(safe-area-inset-bottom))}
+.top{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:2px 2px 10px}.top h1{font-size:20px;margin:0}.sub{font-size:12px;opacity:.7}.pill,.top button{border:0;background:#fff8e9;border-radius:999px;padding:10px 13px;font-weight:800;box-shadow:0 2px 8px #6b3c201a}
+.lobby{background:#fff8e9;border:1px solid #d8bb8f;border-radius:24px;padding:16px;box-shadow:0 10px 30px #6c3c2018}.lobby h2{margin:0 0 4px;font-size:24px}.lobby p{margin:0 0 14px;color:#76533e;font-size:14px}
+.modeRow{display:flex;gap:8px;margin-bottom:15px}.mode{flex:1;border:1px solid #d6b789;background:#fffdf7;border-radius:14px;padding:11px;font-weight:900}.mode.on{background:#f6d99e;border-color:#c99746}
+.roster{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.person{position:relative;border:2px solid transparent;background:#fffdf8;border-radius:18px;padding:10px;text-align:left;min-width:0;box-shadow:0 3px 10px #5e341515}.person.selected{border-color:#d89a32;background:#fff5dd}.portrait{height:118px;border-radius:13px;overflow:hidden;position:relative;background:linear-gradient(145deg,#d8c0a5,#9e775b)}
+.face{position:absolute;width:55px;height:70px;border-radius:48% 48% 44% 44%;left:50%;top:21px;transform:translateX(-50%);background:linear-gradient(90deg,#9f684a,#c88d69 45%,#a96d4d);box-shadow:inset -8px 0 14px #70412b2b}
+.hair{position:absolute;width:62px;height:32px;border-radius:55% 55% 35% 35%;left:50%;top:14px;transform:translateX(-50%);background:#2c201b}.neck{position:absolute;width:24px;height:25px;left:50%;top:79px;transform:translateX(-50%);background:#ad7354}.shirt{position:absolute;width:100px;height:60px;border-radius:50% 50% 0 0;left:50%;top:94px;transform:translateX(-50%);background:#506d72}
+.person:nth-child(2) .face{background:linear-gradient(90deg,#805038,#b77c5a 50%,#8d573d)}.person:nth-child(2) .hair{background:#191919}.person:nth-child(2) .shirt{background:#85564c}
+.person:nth-child(3) .face{background:linear-gradient(90deg,#b67a58,#d6a17c 50%,#b97c59)}.person:nth-child(3) .hair{background:#3b2a24}.person:nth-child(3) .shirt{background:#637b4f}
+.person:nth-child(4) .face{background:linear-gradient(90deg,#8b593f,#bd8060 50%,#955d43)}.person:nth-child(4) .hair{background:#201a18}.person:nth-child(4) .shirt{background:#5e5b85}
+.person b{display:block;margin-top:8px;font-size:16px}.stars{color:#c98516;font-size:12px;letter-spacing:1px}.trait{font-size:11px;color:#76533e;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.check{position:absolute;right:8px;top:8px;width:25px;height:25px;border-radius:50%;background:#d89931;color:white;display:none;place-items:center;font-weight:900}.selected .check{display:grid}
+.start{width:100%;margin-top:14px;border:0;border-radius:16px;background:#bd543d;color:white;font-weight:900;font-size:17px;padding:14px;box-shadow:0 5px 0 #8f3d2d}
+.game{display:none}.game.show{display:block}.lobby.hide{display:none}
+.tableWrap{perspective:900px}.table{position:relative;height:min(690px,calc(100dvh - 126px));min-height:570px;overflow:hidden;border-radius:42px 42px 54px 54px;background:
+radial-gradient(ellipse at 50% 20%,#ffffff20 0 20%,transparent 50%),
+repeating-linear-gradient(92deg,transparent 0 84px,#4f2a1516 85px 87px,transparent 88px 170px),
+linear-gradient(105deg,#b77440,#8e4f29 46%,#a96134 68%,#7d4224);
+box-shadow:inset 0 0 0 5px #69371f44,inset 0 0 55px #40200e55,0 12px 25px #5a321d30;transform:rotateX(.7deg);transform-origin:50% 100%}
+.table:before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,#fff2 0 12%,transparent 24% 68%,#32160818);pointer-events:none}
+.chai{position:absolute;right:14px;bottom:126px;width:43px;height:65px;border:4px solid #e8e3d8aa;border-radius:8px 8px 15px 15px;background:linear-gradient(90deg,#fff3,#8b4818aa 18% 80%,#fff4);box-shadow:5px 8px 10px #42210e3b;transform:rotate(4deg)}.chai:after{content:"";position:absolute;left:3px;right:3px;top:8px;height:7px;border-radius:50%;background:#7a3d17}.steam{position:absolute;right:27px;bottom:194px;color:#fff8;font-size:26px;transform:rotate(7deg)}
+.chips{position:absolute;left:-20px;bottom:108px;width:112px;height:145px;border-radius:12px 15px 20px 12px;background:linear-gradient(150deg,#e72f2f,#f19128 48%,#f7c83f);box-shadow:8px 9px 14px #44200d45;transform:rotate(-12deg);border:2px solid #ffd66a;z-index:1}.chips span{position:absolute;left:25px;top:38px;font-weight:1000;color:#fff8dc;text-shadow:0 2px #a42a22;transform:rotate(2deg);font-size:15px;line-height:1.05}.chips i{position:absolute;width:33px;height:20px;border-radius:50%;background:#f6d569;left:43px;top:84px;box-shadow:inset -5px -4px #bd7428}
+.seat{position:absolute;text-align:center;z-index:5;color:#fff8e8;text-shadow:0 2px 3px #3b1c12;font-size:11px}.seat .head{width:46px;height:46px;border-radius:50%;margin:auto;background:linear-gradient(135deg,#34241f 0 35%,#bb805e 36% 78%,#3a2922 79%);border:3px solid #f7e5c4;box-shadow:0 4px 10px #3b1d10aa}.seat b{display:block;font-size:13px;margin-top:2px}.north{top:9px;left:50%;transform:translateX(-50%)}.west{left:8px;top:40%}.east{right:8px;top:40%}
+.cardbacks{display:flex;justify-content:center;margin-top:4px}.cb{width:17px;height:26px;border-radius:3px;margin-left:-7px;background:repeating-linear-gradient(45deg,#c83d45 0 3px,#f07a6e 3px 6px);border:1px solid #ffe5c9}
+.playfield{position:absolute;left:12%;right:12%;top:21%;bottom:21%;border-radius:34px;display:grid;grid-template-columns:repeat(4,1fr);gap:4px;align-items:center;z-index:2}.lane{display:flex;flex-direction:column;align-items:center;gap:2px}.suit{font-size:22px;font-weight:900;color:#2b1a12;text-shadow:0 1px #ffffff55}.suit.red{color:#c92f39}.mini{width:40px;height:29px;border-radius:5px;background:#fffdf8;border:1px solid #d8c7ad;display:grid;place-items:center;font-weight:900;font-size:12px;box-shadow:0 3px 4px #40200e45;transform:rotate(var(--r,0deg))}.mini.red{color:#c92f39}.mini.seven{box-shadow:0 0 0 3px #eeb83c,0 5px 8px #3e1e0d55}.ghost{width:39px;height:29px;border:1px dashed #5e341c66;border-radius:6px;display:grid;place-items:center;color:#60391e88;font-weight:800}
+.toast{position:absolute;z-index:8;left:50%;bottom:116px;transform:translateX(-50%);background:#fff5dfed;border:1px solid #d8b989;border-radius:999px;padding:8px 13px;font-weight:900;font-size:12px;box-shadow:0 5px 12px #3f1e0d33;white-space:nowrap}
+.you{position:absolute;bottom:82px;left:50%;transform:translateX(-50%);z-index:7;background:#fff0d4dd;padding:5px 11px;border-radius:999px;font-size:12px;font-weight:900}
+.hand{position:absolute;left:0;right:0;bottom:-8px;height:100px;display:flex;justify-content:center;align-items:flex-end;z-index:6;padding:0 6px}.card{width:59px;height:91px;flex:0 0 59px;margin-left:-12px;border:1px solid #d7c6ad;border-radius:9px;background:linear-gradient(145deg,#fff,#f8f1e4);box-shadow:0 5px 10px #3b1d0e55;padding:6px;text-align:left;font-weight:900;font-size:14px;position:relative;transition:.16s transform,.16s box-shadow}.card:first-child{margin-left:0}.card.red{color:#c92f39}.card.playable{box-shadow:0 0 0 3px #efb632,0 6px 12px #3b1d0e55;transform:translateY(-5px)}.card.playable:active{transform:translateY(-11px) scale(1.03)}.big{position:absolute;right:6px;bottom:4px;font-size:24px}
+.pass{position:absolute;right:12px;bottom:84px;z-index:9;border:0;border-radius:14px;padding:10px 12px;background:#fff2d8e8;font-weight:900;box-shadow:0 4px 10px #4a261433}.pass:disabled{opacity:0;pointer-events:none}
+.score{display:none;position:absolute;inset:12% 8%;z-index:20;background:#fff9ecf5;border-radius:22px;padding:15px;box-shadow:0 14px 40px #2b140c88;overflow:auto}.score.show{display:block}.score h3{margin:0 0 10px}.score table{width:100%;border-collapse:collapse;font-size:12px}.score th,.score td{padding:7px 4px;border-bottom:1px solid #e7d5b9;text-align:center}.score th:first-child,.score td:first-child{text-align:left}.closeScore{border:0;border-radius:12px;background:#eed4a7;padding:8px 11px;font-weight:900;float:right}
+@media(max-width:390px){.app{padding-left:6px;padding-right:6px}.table{min-height:545px;border-radius:34px}.playfield{left:11%;right:11%;top:20%;bottom:22%}.mini{width:34px}.card{width:53px;flex-basis:53px;height:84px;margin-left:-14px}.chips{width:92px;height:124px}.chai{right:8px}.roster{gap:7px}.portrait{height:105px}}
+@media(min-width:600px){.table{height:720px}.playfield{left:20%;right:20%}.hand .card{width:66px;flex-basis:66px;height:98px;margin-left:-9px}.roster{grid-template-columns:repeat(4,1fr)}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<main class="app">
+<div class="top"><div><h1>Badaam Saat ♥</h1><div class="sub">Cards after chai.</div></div><button id="scoresTop" hidden>Scores</button></div>
+
+<section class="lobby" id="lobby">
+<h2>Who’s at the table?</h2><p>Pick any three computer opponents. Their skill and habits change how they play.</p>
+<div class="modeRow"><button class="mode on" data-mode="quick">Quick Game</button><button class="mode" data-mode="seven">7 Rounds</button></div>
+<div class="roster" id="roster"></div>
+<button class="start" id="start">Sit down & deal</button>
+</section>
+
+<section class="game" id="game">
+<div class="tableWrap"><div class="table">
+<div class="chips" aria-hidden="true"><span>MASALA<br>CHIPS</span><i></i></div><div class="steam">〰</div><div class="chai" aria-label="Cutting chai"></div>
+<div class="seat north" id="seat2"></div><div class="seat west" id="seat1"></div><div class="seat east" id="seat3"></div>
+<div class="playfield" id="board"></div>
+<div class="toast" id="toast">Shuffling…</div><div class="you" id="you">You · 13 cards</div>
+<div class="hand" id="hand"></div><button class="pass" id="pass" disabled>Pass</button>
+<div class="score" id="score"><button class="closeScore" id="closeScore">Close</button><h3>Scoreboard</h3><div id="scoreBody"></div></div>
+</div></div>
+</section>
+</main>
+<script>
+(()=>{
+const roster=[
+ {name:"Vikram",stars:1,trait:"Casual · plays what he sees",style:"casual"},
+ {name:"Naina",stars:2,trait:"Cautious · sheds high cards",style:"shed"},
+ {name:"Kabir",stars:3,trait:"Balanced · watches the table",style:"balanced"},
+ {name:"Tara",stars:4,trait:"Sharp · preserves blockers",style:"block"},
+ {name:"Arjun",stars:5,trait:"Expert · plans several turns ahead",style:"expert"},
+ {name:"Leela",stars:3,trait:"Unpredictable · loves opening suits",style:"open"}
+];
+const suitData=[{k:"H",s:"♥",red:1},{k:"D",s:"♦",red:1},{k:"C",s:"♣",red:0},{k:"S",s:"♠",red:0}];
+let selected=[0,2,4],players=[],mode="quick",round=0,hands=[[],[],[],[]],bounds={},turn=0,active=false,busy=false,scores=[0,0,0,0],history=[];
+const $=s=>document.querySelector(s), rosterEl=$("#roster"), handEl=$("#hand"),board=$("#board"),toast=$("#toast"),pass=$("#pass");
+function renderRoster(){rosterEl.innerHTML="";roster.forEach((p,i)=>{let b=document.createElement("button");b.className="person "+(selected.includes(i)?"selected":"");b.innerHTML=`<span class="check">✓</span><div class="portrait"><i class="hair"></i><i class="face"></i><i class="neck"></i><i class="shirt"></i></div><b>${p.name}</b><div class="stars">${"★".repeat(p.stars)}${"☆".repeat(5-p.stars)}</div><div class="trait">${p.trait}</div>`;b.onclick=()=>{if(selected.includes(i))selected=selected.filter(x=>x!==i);else if(selected.length<3)selected.push(i);renderRoster()};rosterEl.appendChild(b)})}
+document.querySelectorAll(".mode").forEach(b=>b.onclick=()=>{mode=b.dataset.mode;document.querySelectorAll(".mode").forEach(x=>x.classList.toggle("on",x===b))});
+const rn=r=>r===1?"A":r===11?"J":r===12?"Q":r===13?"K":String(r);
+function deck(){return suitData.flatMap(s=>Array.from({length:13},(_,i)=>({s:s.k,sym:s.s,red:s.red,r:i+1})))}
+function shuffle(a){for(let i=a.length-1;i;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function legal(c){let b=bounds[c.s];return b?c.r===b.lo-1||c.r===b.hi+1:c.r===7}
+function opts(p){return hands[p].filter(legal)}
+function threat(){return hands.map(h=>h.length)}
+function choose(p){let o=opts(p);if(!o.length)return null;let prof=players[p].profile;if(prof.style==="casual")return o[Math.floor(Math.random()*o.length)];
+ let lens=threat(), danger=Math.min(...lens.filter((_,i)=>i!==p));
+ return o.slice().sort((a,b)=>scoreMove(b)-scoreMove(a))[0];
+ function scoreMove(c){let opened=!!bounds[c.s],v=c.r;
+   if(prof.style==="shed")return v+(opened?4:0);
+   if(prof.style==="open")return (!opened?18:0)+v;
+   if(prof.style==="block")return v+(opened?9:-5)+(danger<=4&&!opened?-8:0);
+   if(prof.style==="expert")return v+(opened?12:-8)+(danger<=4&&!opened?-12:0)+(c.r>=11?5:0);
+   return v+(opened?6:0);
+ }}
+function play(p,c){let i=hands[p].indexOf(c);if(i<0||!legal(c))return;hands[p].splice(i,1);if(!bounds[c.s])bounds[c.s]={lo:7,hi:7};else if(c.r<bounds[c.s].lo)bounds[c.s].lo=c.r;else bounds[c.s].hi=c.r;render();if(!hands[p].length){finish(p);return}turn=(p+1)%4;setTimeout(next,380)}
+function next(){if(!active||busy)return;render();let o=opts(turn);if(turn===0){toast.textContent=o.length?"Your turn · choose a glowing card":"Nothing fits · you must pass";pass.disabled=o.length>0;return}busy=true;let p=turn;setTimeout(()=>{if(!active){busy=false;return}let c=choose(p);if(c){toast.textContent=`${players[p].name} plays ${rn(c.r)}${c.sym}`;busy=false;play(p,c)}else{toast.textContent=`${players[p].name} passes`;turn=(p+1)%4;busy=false;render();setTimeout(next,350)}},520)}
+function startRound(){round++;bounds={};hands=[[],[],[],[]];shuffle(deck()).forEach((c,i)=>hands[i%4].push(c));hands.forEach(h=>h.sort((a,b)=>a.s.localeCompare(b.s)||a.r-b.r));let starter=hands.findIndex(h=>h.some(c=>c.s==="H"&&c.r===7));turn=starter;active=true;busy=false;render();toast.textContent=`${players[starter].name} has ♥7 · BADAAM SAAT!`;let c=hands[starter].find(c=>c.s==="H"&&c.r===7);setTimeout(()=>play(starter,c),650)}
+function finish(w){active=false;busy=false;pass.disabled=true;let pts=hands.map((h,i)=>i===w?0:h.reduce((n,c)=>n+c.r,0));scores=scores.map((x,i)=>x+pts[i]);history.push(pts);renderScore();if(mode==="seven"&&round<7){toast.textContent=`${players[w].name} wins round ${round} · tap here for next round`;toast.onclick=()=>{toast.onclick=null;startRound()}}else{let m=Math.min(...scores),ix=scores.indexOf(m);toast.textContent=mode==="quick"?`${players[w].name} wins!`:`Match over · ${players[ix].name} has the lowest score (${m})`;toast.onclick=()=>location.reload()}}
+function render(){board.innerHTML="";suitData.forEach(s=>{let lane=document.createElement("div");lane.className="lane";let b=bounds[s.k],cards="";if(b)for(let r=b.lo;r<=b.hi;r++)cards+=`<div class="mini ${s.red?"red":""} ${r===7?"seven":""}" style="--r:${((r%3)-1)*1.2}deg">${rn(r)}${s.s}</div>`;else cards='<div class="ghost">7</div>';lane.innerHTML=`<div class="suit ${s.red?"red":""}">${s.s}</div>${cards}`;board.appendChild(lane)});
+ handEl.innerHTML="";hands[0].forEach(c=>{let b=document.createElement("button");b.className=`card ${c.red?"red":""} ${active&&turn===0&&legal(c)?"playable":""}`;b.disabled=!(active&&turn===0&&legal(c));b.innerHTML=`${rn(c.r)}${c.sym}<span class="big">${c.sym}</span>`;b.onclick=()=>play(0,c);handEl.appendChild(b)});
+ $("#you").textContent=`You · ${hands[0].length} cards`;
+ [1,2,3].forEach(p=>{let el=$("#seat"+p),n=hands[p].length;el.innerHTML=`<div class="head"></div><b>${players[p].name}</b><span>${n} cards</span><div class="cardbacks">${Array.from({length:Math.min(6,n)},()=>'<i class="cb"></i>').join("")}</div>`});
+ if(turn!==0)pass.disabled=true
+}
+function renderScore(){let names=players.map(x=>x.name);$("#scoreBody").innerHTML=`<table><tr><th>Player</th>${history.map((_,i)=>`<th>R${i+1}</th>`).join("")}<th>Total</th></tr>${names.map((n,p)=>`<tr><td>${n}</td>${history.map(r=>`<td>${r[p]}</td>`).join("")}<td><b>${scores[p]}</b></td></tr>`).join("")}</table>`}
+$("#start").onclick=()=>{if(selected.length!==3){alert("Choose exactly three opponents.");return}players=[{name:"You",profile:{style:"human"}},...selected.map(i=>({name:roster[i].name,profile:roster[i]}))];$("#lobby").classList.add("hide");$("#game").classList.add("show");$("#scoresTop").hidden=false;startRound()};
+pass.onclick=()=>{if(turn!==0||opts(0).length)return;toast.textContent="You pass";turn=1;render();setTimeout(next,350)};
+$("#scoresTop").onclick=()=>$("#score").classList.add("show");$("#closeScore").onclick=()=>$("#score").classList.remove("show");
+renderRoster();
+})();
+</script>
+</body>
+</html>
