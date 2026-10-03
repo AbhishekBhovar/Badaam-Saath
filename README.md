@@ -1,11 +1,14 @@
-# Badaam Saat v6
+# Badaam Saat v7
+Gameplay/stability build.
 
-Clean replacement build.
-
-Important:
-- Assets come from a dedicated production asset sheet, never UI screenshots.
-- `table.jpg` contains only environment artwork: no cards, people, labels, suits, or UI.
-- Opponent JPEGs contain portrait artwork only.
-- All names, stars, cards, suits, counts, buttons, scores and highlights are live HTML/CSS/JS.
-- ♥7 starts; turns move clockwise; passing is disabled whenever a legal card exists.
-- A=1, 2–10 face value, J=11, Q=12, K=13 for remaining-card scoring.
+## Included
+- Expanded 15-character original-art opponent roster; Anjali removed; added Pappu and Tiwari.
+- Flipped difficulty concept: Naina/Arjun easiest, Baburao Legendary.
+- Active-turn portrait glow + arrow.
+- Rebuilt turn engine so play continues after opening 7♥ and AI passes automatically.
+- Correct 7♥ status copy and You have/You played grammar.
+- Raised, larger hand with reliable nearest-card touch targeting and one-tap legal play.
+- Card flight animation from hand/opponent to the suit lane.
+- Number-card pips plus illustrated court-card treatment for J/Q/K.
+- Accidental double-tap zoom disabled for gameplay.
+- Existing clean environment assets retained; no screenshot/mockup used as gameplay background.
