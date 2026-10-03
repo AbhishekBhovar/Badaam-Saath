@@ -1,11 +1,11 @@
-# Badaam Saat v5 — Clean Rebuild
-Complete replacement build. Do not merge old assets.
+# Badaam Saat v6
 
-- Clean timber gameplay plate with no baked-in cards, portraits, suits, labels or UI.
-- Cards-first layout based on the approved cinematic mockup.
-- Borderless opponent cards; selected state uses only restrained gold emphasis.
-- Large central suit stacks anchored on 7.
-- Responsive fanned hand with two-tap play.
-- Single opponent portrait layer.
-- Chai/snacks stay at the periphery.
-- ♥7 mandatory start, clockwise turns, compulsory legal play, A=1 … K=13 scoring.
+Clean replacement build.
+
+Important:
+- Assets come from a dedicated production asset sheet, never UI screenshots.
+- `table.jpg` contains only environment artwork: no cards, people, labels, suits, or UI.
+- Opponent JPEGs contain portrait artwork only.
+- All names, stars, cards, suits, counts, buttons, scores and highlights are live HTML/CSS/JS.
+- ♥7 starts; turns move clockwise; passing is disabled whenever a legal card exists.
+- A=1, 2–10 face value, J=11, Q=12, K=13 for remaining-card scoring.
