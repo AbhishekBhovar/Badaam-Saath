@@ -1,5 +1,6 @@
-Badaam Saat v9 repository patch
+Badaam Saat v13 — 30 Character Portrait Trial
 
-Upload/replace only these included paths. Keep your existing assets/home.jpg and assets/table.jpg.
-
-Changes: clean single 1F logo; no movie/franchise filters; YJHD roster removed; expanded Hera Pheri / Phir Hera Pheri name roster; original realistic portraits with deliberately age-swapped interpretations and same genders; exact per-card transformed touch targets.
+Repository-ready build.
+Includes the 30-character Bollywood-inspired trial roster and dedicated standalone portrait assets from the approved portrait pass.
+Final redos included for Poo, Manjulika, Miss Chandni and Mogambo.
+All portrait artwork uses original faces rather than actor likenesses.
