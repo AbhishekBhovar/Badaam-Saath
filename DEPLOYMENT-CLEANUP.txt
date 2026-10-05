@@ -1,0 +1,27 @@
+BADAAM SAAT v18 — CLEAN DEPLOYMENT
+
+This build contains exactly 31 active portrait files in assets/portraits.
+Tyagi is NOT included. Muthuswamy is temporarily retained.
+
+For the user's uploaded older repository, delete the old legacy image structure before uploading v18:
+- Delete the entire /avatars folder.
+- In /assets, delete:
+  arjun.jpg
+  kabir.jpg
+  leela.jpg
+  naina.jpg
+  tara.jpg
+  vikram.jpg
+  home-reference.jpg
+  timber-clean.jpg
+  table-clean.jpg
+  placeholder.txt
+
+Keep/replace assets/home.jpg and assets/table.jpg from this v18 build.
+
+Recommended deployment:
+1. Delete old /avatars and the loose legacy /assets files listed above.
+2. Upload ALL files/folders from this v18 ZIP to the repository root, replacing matching files.
+3. Make sure /assets/portraits contains only the 31 files from this ZIP.
+4. Wait for GitHub Pages deployment to finish, then reload.
+5. Portrait URLs are cache-busted with ?v=18.
