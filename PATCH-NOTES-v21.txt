@@ -1,0 +1,24 @@
+BADAAM SAAT v21 — MINIMAL PATCH
+
+Apply over v20. Only changed files are included.
+
+Roster / descriptors
+- Tiwari Seth: Medium (3★), Cautious • Predictable
+- Shantipriya: Easy (2★), Graceful • Trusting
+- Vasooli Bhai: Intimidating • Impatient
+- Muthuswamy: Protective • Hot-tempered
+- Manjulika: Vengeful • Intense
+- Meenamma: Decisive • Determined
+- Aryan: Brilliant • Mastermind
+- Poo: Overconfident • Impulsive
+- Shyam: Sensible • Naive
+- Taani: Gentle • Gullible
+- Chinki: Observant • Methodical
+
+Portrait updates
+- Sunehri and Sehmat: more dimensional / 3D approved treatment.
+- Rancho: final clean eccentric card-balancing artwork; no duplicate embedded nameplate.
+- Aryan: final reframed artwork with full head visible.
+- Taani: final conservative pink zip-up athletic outfit with full head visible.
+
+Everything else remains inherited from v20.
