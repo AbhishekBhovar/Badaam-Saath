@@ -1,0 +1,16 @@
+Badaam Saat v22 — Multiplayer + Build Your Player foundation
+
+Apply over v21.
+
+Added:
+- Uncluttered Play hub: Quick Game, 7-Game Series, Tournament
+- Home reduced to PLAY + two compact Friends/Your Player entries
+- Build Your Player: name, look, archetype, two traits, local save
+- With Friends hub
+- Pass & Play setup for 2–4 humans + optional CPU fill, locally saved
+- Online Private Room UI: create/join room code foundation
+
+Important:
+- Existing 36-character roster/portraits/descriptors remain untouched.
+- Online cross-device synchronization still requires a realtime backend.
+- Pass & Play setup/privacy-gate UI is staged; wiring multiple human hands into the existing engine is the next integration step.
