@@ -1,0 +1,10 @@
+Badaam Saat v20 minimal patch
+
+Changed:
+- index.html: 36-character roster/difficulties/descriptors, Today’s Characters, smaller tiles, modes, suit sorting, table/7/card-back/landscape styling.
+- assets/table.jpg: gently sharpened.
+- portraits: Sunehri, Sehmat, Vijay Salgaonkar, Aryan, Rancho, Shanaya, Chinki.
+
+Today’s Characters: 6 male + 4 female deterministic daily pool.
+Modes: Quick Game, 7-Game Series, Tournament (Easy → Medium → Hard → Legendary) with stage rematch on loss.
+Hand order: Clubs → Hearts → Spades → Diamonds.
