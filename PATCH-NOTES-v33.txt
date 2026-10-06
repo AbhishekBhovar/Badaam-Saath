@@ -1,0 +1,10 @@
+Badaam Saat v33 — intro/home regression repair
+
+- Based on v30 stable layout, not v32.
+- Home screen markup/CSS preserved.
+- Intro isolated under v33-prefixed classes so it cannot alter Home.
+- Four 7s enter from four table directions, clash, 7♥ slams centre, title/tagline reveal.
+- Intro auto-transitions to Home after 4.55s; tap anywhere skips early.
+- No blank dead state and no visible Skip button.
+- App icon only: clean main logo crop, no thumbnail strip.
+- Home logo asset deliberately NOT included or changed.
