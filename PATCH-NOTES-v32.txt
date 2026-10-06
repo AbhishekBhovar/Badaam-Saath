@@ -1,0 +1,9 @@
+Badaam Saat v32
+- Replaced broken iPhone/home icon crop with main artwork only (no thumbnail strip).
+- Replaced home logo asset with clean main artwork crop.
+- Opening intro rebuilt to reliably execute when enabled.
+- Four-card 3D choreography: 7♣ / 7♦ / 7♠ fly in, 7♥ slams centre.
+- Added perspective, card thickness/shadows, impact ring/glow, camera jolt and title punch.
+- Removed visible Skip button; tap anywhere exits intro.
+- Removed session-only suppression: if “Show opening intro” is enabled, the intro plays on each fresh page load.
+- Removed automatic 4.3s dismissal; final TAP TO DEAL state remains until tapped.
