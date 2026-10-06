@@ -1,0 +1,14 @@
+Badaam Saat v23 — Character Creator + Roster Expansion Patch
+
+Apply over v22.
+
+Includes:
+- Expanded Build Your Player: Identity → Appearance → Style → Playstyle
+- Live CSS avatar preview; gender, age, build, skin tone, face, hair, facial hair, accessory and outfit controls
+- 12 positive gameplay traits with one-line explanations
+- Dynamic roster count / future-character-ready wording
+- Latest difficulty rebalances
+- Adds Aisha (Medium) and Tanu (Hard) with approved portrait crops
+- Current roster: 38 characters; code derives count dynamically
+
+No other locked portraits are replaced.
