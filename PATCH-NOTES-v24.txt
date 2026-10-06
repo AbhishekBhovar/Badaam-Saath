@@ -1,0 +1,11 @@
+Badaam Saat v24 — Character Creator + Cinematic Intro
+
+Apply over v23.
+
+Changes:
+- Rebuilt custom-player live preview into a layered human avatar (face, eyes, brows, nose, mouth, ears, neck, hair, facial hair, body/outfit, accessories).
+- Age visibly affects avatar; body build, gender presentation, face shape, skin tone, hair, facial hair, accessories and outfit update live.
+- Builder sections are now compact collapsible steps; preview remains visible while editing.
+- Replaced opening with cinematic room/table/card-deal sequence focused on 7♥, title reveal and Tap to Play.
+- Intro is skippable, reduced-motion aware, and does not replay repeatedly in the same app session.
+- No locked roster portraits or character data changed.
