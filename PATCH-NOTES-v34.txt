@@ -1,0 +1,14 @@
+Badaam Saat v34 — Cinematic Intro Alternative
+
+Base: apply over the existing v33/full game files.
+
+Changes:
+- Keeps the existing opening intro intact as the Classic option.
+- Adds a separate Cinematic intro as an isolated fixed overlay, so it cannot alter Home layout.
+- Cinematic intro uses the existing home/table artwork, perspective card movement, depth, parallax, impact lighting and faster choreography.
+- 7♣ / 7♦ / 7♠ converge first; 7♥ lands as the hero card.
+- Auto-transitions to Home after ~4.35 seconds; tap anywhere skips early.
+- Settings now include Intro style: Classic / Cinematic while retaining Show opening intro On/Off.
+- Changing intro settings clears the per-session intro flag so the newly selected style can be tested on refresh.
+- No roster, gameplay, creator, homepage layout, or locked portrait changes.
+- No new generated character/scene art is included; the cinematic scene reuses existing game artwork.
