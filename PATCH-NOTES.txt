@@ -1,6 +1,8 @@
-Badaam Saat v26
-- Replaces the old constructed-face/troll avatar renderer with a cleaner portrait-preset creator architecture.
-- Adds visual base portrait selection and keeps age/build/hair/colour/accessories/style customisation.
-- Active builder section heading stays visible while scrolling.
-- Reworks intro toward warm home game-night rivalry: existing table background, chai, four-card slam energy, 7-heart hero, Cards. Chai. No Mercy., Tap to Deal.
-- No locked roster portraits changed.
+Badaam Saat v28
+- Rebuilt Build Your Player as a brief-first creator.
+- Fixed accordion click behaviour and field positioning.
+- Removed CSS/blob portrait presets.
+- Appearance now captures face shape and visual details.
+- Generate My Player compiles a production-ready portrait brief from all selections.
+- Secure image-generation connection remains for the packaged app/backend; no API key is embedded in the static game.
+- Keep This Player retains local player saving.
