@@ -1,0 +1,7 @@
+Badaam Saat v31 — intro choreography patch
+- Faster competitive card choreography
+- Perspective/3D fly-ins
+- 7♥ impact ring + table shake
+- Punchier title reveal + gold flare
+- No visible Skip; tap anywhere still skips
+- No roster/gameplay/portrait changes
