@@ -1,0 +1,7 @@
+Badaam Saat v25 minimal patch over v24
+• Premium game-mode Play hub
+• Quick Game, 7-Game Series and Tournament now have distinct visual identities
+• With Friends and Build Your Player compact utility cards
+• Saved custom player appears on Play hub
+• Removed brown intro table/blob
+• Tightened home logo clipping to hide border bleed without altering artwork
