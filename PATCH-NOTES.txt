@@ -1,8 +1,15 @@
-Badaam Saat v28
-- Rebuilt Build Your Player as a brief-first creator.
-- Fixed accordion click behaviour and field positioning.
-- Removed CSS/blob portrait presets.
-- Appearance now captures face shape and visual details.
-- Generate My Player compiles a production-ready portrait brief from all selections.
-- Secure image-generation connection remains for the packaged app/backend; no API key is embedded in the static game.
-- Keep This Player retains local player saving.
+Badaam Saat v30
+
+Creator reset:
+- No split portrait card or CSS avatar/blob renderer.
+- No invented default gender, age, build, face, hair, style or traits.
+- Old pre-v30 creator saves are ignored so stale defaults do not reappear.
+- Sequential Identity > Appearance > Style > Playstyle flow with validation.
+- Completed steps can be revisited.
+- Generate My Player creates and saves a secure-generation-ready portrait brief.
+
+Intro reset:
+- Visible Skip button removed; tapping anywhere still skips.
+- Flat chai/symbol clip-art removed.
+- Four 7s use dimensional card styling, perspective, thickness and stronger shadows.
+- Existing table art retained; no locked character portraits changed.
