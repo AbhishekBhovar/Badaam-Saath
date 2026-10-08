@@ -1,0 +1,10 @@
+Badaam Saat — v35 Intro Polish Patch
+
+Changes:
+- Refined the cinematic intro card composition so the four 7-cards read like real overlapping cards.
+- Reduced the awkward folded/origami look in the opening stack.
+- Added a grounded shadow under the cards so they feel placed on the table.
+- Tightened the spacing between the hero stack and the Badaam Saat title.
+- Slightly brightened and clarified the home game-night background while preserving the dark cinematic mood.
+- Left the existing Classic intro system intact as the fallback option.
+- No homepage/game-system changes included in this patch.
